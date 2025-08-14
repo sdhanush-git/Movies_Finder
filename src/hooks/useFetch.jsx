@@ -5,6 +5,7 @@ const useFetch = (apiPath, queryTerm="") => {
 
   const [data, setData] = useState([])
 
+
   const options = {
     method: "GET",
     headers: {
@@ -19,7 +20,7 @@ const useFetch = (apiPath, queryTerm="") => {
     async function fetchMovies() {
 
       const response = await fetch(
-        `https://api.themoviedb.org/3/${apiPath}?query=${queryTerm}`,
+        `https://api.themoviedb.org/3/${apiPath}?query=${queryTerm} `,
         options
       );
 
@@ -28,7 +29,7 @@ const useFetch = (apiPath, queryTerm="") => {
       setData(data.results);
     }
     fetchMovies();
-  }, [apiPath]);
+  }, [apiPath,  queryTerm ]);
 
   return {data};
 }

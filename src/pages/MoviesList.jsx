@@ -1,13 +1,16 @@
-import { useState } from "react";
+import { useEffect } from "react";
 import Card from "../components/Card";
 import useFetch from "../hooks/useFetch";
-import { AllRoutes } from "../routes/AllRoutes";
 
-const MoviesList = ({apiPath}) => {
+
+const MoviesList = ({apiPath ,head}) => {
 
 
   const {data:movies} = useFetch(apiPath);
   
+  useEffect (()=>{
+    document.title = `${head}/ CinemaBite`;
+  })
 
   return (
     
